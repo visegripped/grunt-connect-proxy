@@ -40,7 +40,7 @@ module.exports = function(grunt) {
     }
     proxyOptions.forEach(function(proxy) {
         proxyOption = _.defaults(proxy,  {
-            port: 80,
+            port: "",
             https: false,
             xforward: false,
             rules: [],
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
               }),
               config: proxyOption
             });
-            grunt.log.writeln('Proxy created for: ' +  proxyOption.context + ' to ' + proxyOption.host + ':' + proxyOption.port);
+            grunt.log.writeln('Proxy created for: ' +  proxyOption.context + ' to ' + proxyOption.host + ( proxyOption.port ? ':' + proxyOption.port : ""));
         }
     });
   });
